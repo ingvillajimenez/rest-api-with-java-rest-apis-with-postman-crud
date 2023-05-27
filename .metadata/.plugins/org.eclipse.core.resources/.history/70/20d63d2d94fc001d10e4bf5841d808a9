@@ -1,0 +1,57 @@
+package com.example.beans;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProductRepository {
+
+	private List<Product> productRecords;
+	private static ProductRepository prdrepo = null;
+	
+	private ProductRepository() {
+		productRecords = new ArrayList<Product>();
+	}
+	
+	public static ProductRepository getInstance() {
+		if(prdrepo == null) {
+			prdrepo = new ProductRepository();
+			return prdrepo;
+		} else {
+			return prdrepo;
+		}
+	}
+	
+	public Product getProduct(String sku) {
+		for(int i = 0; i < productRecords.size(); i++) {
+			Product prd = productRecords.get(i);
+			if (prd.getSku().equals(sku)) {
+				return prd;
+			}
+		}
+		return null;
+	}
+	
+	public String addProduct(Product product) {
+		for(int i = 0; i < productRecords.size(); i++) {
+			Product prd = productRecords.get(i);
+			if (prd.getSku().equals(product.getSku())) {
+				productRecords.add(product);
+				return "Post successful";
+			}
+		}
+		return "Post unsuccessful";
+	}
+	
+	public String updateProduct(Product product) {
+		for(int i = 0; i < productRecords.size(); i++) {
+			Product prd = productRecords.get(i);
+			if(prd.getSku().equals(product.getSku())) {
+				productRecords.set(i, product);
+				return "Update successful";
+			}
+		}
+		return "Update unsuccessful";
+	}
+	
+	
+}

@@ -1,0 +1,23 @@
+package com.example.controllers;
+
+import org.springframework.stereotype.Controller;
+
+import com.example.beans.Product;
+import com.example.beans.ProductRepository;
+import com.example.beans.ProductRepositoryRelay;
+
+@Controller
+public class ProductRegistrationController {
+
+	
+	public ProductRepositoryRelay registerProduct(Product product) {
+		
+		ProductRepositoryRelay productrelay = new ProductRepositoryRelay();
+		ProductRepository.getInstance().add(product);
+		//Set and relay back to caller
+		productrelay.setName(product.getName());
+		productrelay.setSku(product.getSku());
+		
+		return productrelay;
+	}
+}

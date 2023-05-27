@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+/Users/juan/code/skillsoft/full-stack-java-developer/spring-boot-rest/rest-api-with-java-rest-apis-with-postman-crud/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+608063752.index
+2740166649.index
+2366116458.index
+855406058.index
+3464609945.index
+1928488841.index
+2191840660.index
